@@ -1,15 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detección de Rostros - Cliente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Detección de Rostros</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        #video {
+            max-width: 100%;
+            width: 100%;
+            max-height: 70vh;
+            background-color: #000;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #status {
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            #video {
+                max-width: 640px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Detección de rostros usando OpenCV y Raspberry Pi</h1>
-    <video id="video" autoplay></video>
+    <h1>Detección de Rostros</h1>
+    <video id="video" autoplay playsinline disablepictureinpicture controls="false"></video>
     <p id="status"></p>
 
-    <script src="/static/js/camera.js"></script>
+    <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
 </body>
 </html>
